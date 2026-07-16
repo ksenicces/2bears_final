@@ -506,7 +506,7 @@ nav{display:flex;align-items:center;gap:36px;}
   opacity:0;margin-left:44px;
 }
 .faq-answer p{margin:12px 0 0;font-size:18px;line-height:1.6;color:var(--muted);font-weight:400;max-width:560px;}
-.faq-item.open .faq-answer{max-height:220px;opacity:1;}
+.faq-item.open .faq-answer{max-height:none; opacity:1;}
 .faq-item.open .faq-plus{background:var(--orange);border-color:var(--orange);color:#fff;transform:rotate(45deg);}
 
 .faq-box{

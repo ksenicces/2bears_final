@@ -17,6 +17,7 @@
     color:var(--text);
     background:var(--bg);
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
   a{text-decoration:none;color:inherit;}
   .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
@@ -53,8 +54,9 @@ header .btn:hover {
   .header-inner{
     display:flex;align-items:center;justify-content:space-between;
     padding:18px 24px;max-width:1200px;margin:0 auto;
+    gap:16px;
   }
-  .logo{display:flex;align-items:center;gap:10px;}
+  .logo{display:flex;align-items:center;gap:10px;flex:none;}
   .logo-img{height:74px;width:auto;flex:none;}
 nav{display:flex;align-items:center;gap:36px;}
   nav a{font-weight:700;font-size:20px;color:var(--text);letter-spacing:0.2px;} 
@@ -63,6 +65,17 @@ nav{display:flex;align-items:center;gap:36px;}
   @media (max-width:900px){
     .nav-links{display:none;}
   }
+
+  /* Header phone */
+  .header-phone{
+    display:flex;align-items:center;gap:8px;
+    font-weight:800;font-size:18px;color:var(--text);
+    white-space:nowrap;
+    transition:color .2s ease;
+    flex:none;
+  }
+  .header-phone svg{width:20px;height:20px;color:var(--orange);flex:none;}
+  .header-phone:hover{color:var(--orange);}
 
   /* Hero */
 .hero-grid {
@@ -127,6 +140,7 @@ nav{display:flex;align-items:center;gap:36px;}
     
     .hero-grid > div:first-child {
         max-width: 100%;
+        order: 2;
     }
     
     .hero-buttons {
@@ -134,7 +148,9 @@ nav{display:flex;align-items:center;gap:36px;}
     }
     
     .hero-art {
-        margin-top: 30px;
+        order: 1;
+        margin-top: 0;
+        margin-bottom: 10px;
         max-width: 100%; 
     }
 } 
@@ -157,6 +173,7 @@ nav{display:flex;align-items:center;gap:36px;}
   background:#fff;
 }
 .badge svg{width:22px;height:22px;flex:none;}
+.badge-icon{width:22px;height:22px;flex:none;border-radius:50%;object-fit:cover;}
 
   /* For whom */
   .section{padding:70px 0;}
@@ -609,6 +626,8 @@ footer::after{
 @media (max-width:500px){
     .footer-top{
         grid-template-columns:1fr;
+        padding:40px 20px 24px;
+        gap:32px;
     }
 }
 
@@ -642,6 +661,7 @@ footer::after{
     display:flex;
     gap:18px;
     margin-top:24px;
+    flex-wrap:wrap;
 }
 
 .footer-social a{
@@ -656,6 +676,7 @@ footer::after{
     text-decoration:none;
     line-height:0;
     transition:.25s;
+    flex:none;
 }
 
 .footer-social a svg{
@@ -802,6 +823,7 @@ footer::after{
     border:1px solid #4a5568;
     color:#cfd3da;
     transition:.25s;
+    flex:none;
 }
 
 .footer-to-top svg{
@@ -886,4 +908,64 @@ footer::after{
 .modal-close:hover {
   color: var(--orange);
   transform: rotate(90deg);
+}
+
+/* ==========================================================
+   Доп. адаптив: хедер, hero и футер на маленьких экранах
+   ========================================================== */
+@media (max-width:600px){
+  .header-inner{
+    padding:12px 16px;
+    gap:10px;
+  }
+  .logo-img{height:46px;}
+  .header-phone{font-size:14px;gap:6px;}
+  .header-phone svg{width:16px;height:16px;}
+  .header-phone span{white-space:nowrap;}
+
+  .hero{padding-top:8px;}
+  .hero-grid{gap:24px;}
+  .hero-grid h1{font-size:30px;margin-bottom:14px;}
+  .hero-grid .lead{font-size:16px;margin-bottom:24px;max-width:100%;}
+  .hero-buttons{
+    flex-direction:column;
+    width:100%;
+    gap:12px;
+  }
+  .hero-buttons .btn{
+    width:100%;
+    justify-content:center;
+    font-size:16px;
+    padding:14px 20px;
+  }
+  .hero-art{margin-top:0;margin-bottom:16px;}
+
+  .badges{
+    justify-content:center;
+    gap:10px;
+    padding:24px 0 40px;
+  }
+  .badge{
+    font-size:14px;
+    padding:10px 16px;
+  }
+
+  .section{padding:48px 0;}
+  h2{font-size:28px;}
+  .subhead{font-size:16px;}
+
+  .not-found{padding:24px 20px;}
+  .not-found .btn{width:100%;justify-content:center;}
+
+  .footer-top{gap:28px;}
+  .footer-tagline{max-width:100%;}
+  .footer-social{justify-content:flex-start;}
+  .footer-info-row span:last-child{word-break:break-word;}
+  .footer-bottom{padding:16px 20px;}
+  .footer-bottom-text{font-size:12px;}
+}
+
+@media (max-width:380px){
+  .header-phone span{display:none;}
+  .header-phone svg{width:22px;height:22px;}
 }
